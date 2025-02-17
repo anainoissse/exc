@@ -118,7 +118,7 @@ document.getElementById('bookingForm').addEventListener('submit', async (e) => {
     }
 
     try {
-        const res = await fetch('https://exc-cxwf.onrender.com', { // Измени на свой сервер
+        const res = await fetch('https://exc-cxwf.onrender.com/book', { // Измени на свой сервер
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, date })
