@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -28,4 +28,4 @@ app.get('/bookings', async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT, () => console.log('Server running...'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
