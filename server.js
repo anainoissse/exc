@@ -27,5 +27,8 @@ app.get('/bookings', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+app.get('/', (req, res) => {
+    res.send('Сервер работает!');
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
