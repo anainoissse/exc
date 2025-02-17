@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Excursions mpei</title>
+</head>
+<body>
+   
+<div class='header'>
+    
+    <div class="hat" >
+        <div class="hat-logo" ><a href="https://pk.mpei.ru/"><img style="width: 80px; height: 80px;" src="img/logo.png" alt="" ></a></div>
+        <div class="basement-title"  style="text-align:left; font-size: 16px; margin-right:0px;  font-weight: 500; font-family: 'Montserrat', sans-serif;" id="numm1">
+            <a href="https://pk.mpei.ru/extra/priem2025/priem2025.html" target="_blank" style="text-decoration: none; color:black;">О нас </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#item1" style="text-decoration: none; color:black;">Контакты</a></div>
+    </div>
+    <div class='header-title'>
+        ЭКСКУРСИИ В НИУ «МЭИ»
+    </div>
+</div>
+    
+<div class='butt'>
+    
+    <form id="bookingForm">
+    <input type="text" id="name" placeholder="Ваше ФИО" required>
+    <input type="email" id="email" placeholder="Ваш Email" required>
+    <input type="date" id="date" required>
+    <button type="submit">Записаться на экскурсию</button>
+</form>
+<a href="https://vk.com/im?sel=-31496847" class="btn">Написать в сообщество Вконтакте для уточнения<br> вопросов по организации экскурсии</a>
+<style>
+    /* Основные стили для формы */
+    #bookingForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 30px 0px 0px 0px;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Стили для input элементов */
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #3e3e9e;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #3e3e9e;
+        outline: none;
+        box-shadow: 0 0 5px rgba(62, 62, 158, 0.6);
+    }
+
+    input::placeholder {
+        color: #888;
+        font-style: italic;
+    }
+
+    /* Стили для кнопки */
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #3e3e9e;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    }
+
+    button:hover {
+        background-color: #323278;
+    }
+
+    button:active {
+        background-color: #2a2a63;
+    }
+
+    /* Адаптивность для мобильных */
+    @media screen and (max-width: 600px) {
+        #bookingForm {
+            padding: 15px;
+        }
+
+        input, button {
+            font-size: 14px;
+        }
+    }
+</style>
+
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('date').value;
+
+    if (!name || !email || !date) {
+        alert('Заполните все поля!');
+        return;
+    }
+
+    try {
+        const res = await fetch('http://localhost:3000/book', { // Измени на свой сервер
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, date })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+            alert('Запись успешна!');
+            document.getElementById('bookingForm').reset(); // Очистка формы
+        } else {
+            alert('Ошибка: ' + data.error);
+        }
+    } catch (err) {
+        alert('Ошибка сети: ' + err.message);
+    }
+});
+</script>
+
+
+    <div class='txt1'>после заполнения данной формы с вами свяжутся сотрудники Приемной комиссии МЭИ и обсудят все ключевые моменты экскурсии</div>
+</div>
+    
+<div class='acc'>    
+<div class='txt2'>
+<hr style="border-top: 2px solid #3e3e9e;">
+    Что вы сможете посетить с экскурсией?
+    <hr style="border-top: 2px solid #3e3e9e;">
+</div>
+
+<button class="accordion">Военный учебный центр НИУ «МЭИ»</button>
+<div class="panel">
+  <p style='padding:25px;'>Это ваша возможность вблизи посмотреть на настоящие боевые вертолеты, сверхзвуковые истребители, а также посидеть в кабине некоторых объектов военной техники.</p>
+</div>
+
+<button class="accordion">НЦ «Износостойкость»</button>
+<div class="panel">
+  <p style='padding:25px;'>Сотрудники научного центра «Повышения износостойкости и надежности энергетического оборудования электрических станций», созданного в 1995 году при участии РАО «ЕЭС России», расскажут о современных методах повышения эффективности энергетического оборудования и о инновационных технологиях, применяемых в энергетике.</p>
+</div>
+
+<button class="accordion">Лаборатория Технологии материалов</button>
+<div class="panel">
+    <p style='padding:25px;'>В лаборатории проводятся испытания различных видов сплавов, композитных материалов. Во время экскурсии вы узнаете, как проводятся испытания стали, какой металл самый прочный, какой – самый хрупкий, а главное – с чем это связано и как использовать это себе на пользу.</p>
+</div>
+    
+    
+<button class="accordion">Лаборатория ABB</button>
+<div class="panel">
+  <p style='padding:25px;'>Лаборатория кафедры Автоматизированного электропривода, оснащенная новейшим оборудованием. Вы познакомитесь не только с работой электроприводов (и узнаете, что это такое и для чего нужно), но и узнаете принципы безопасной работы на электроустановках, т.е. то, как защитить себя от поражения электрическим током.</p>
+</div>
+
+<button class="accordion">Лаборатория Systeme Electric</button>
+<div class="panel">
+  <p style='padding:25px;'>В этой лаборатории кафедры Автоматизированного электропривода проводятся исследования уровня эффективности, экологической безопасности и надежности электрооборудования.</p>
+</div>
+
+<button class="accordion">Учебно-экспериментальный полигон возобновляемой энергетики</button>
+<div class="panel">
+    <p style='padding:25px;'>Действующие ветровые энергоустановки (настоящие ветряки!), солнечные панели – это не простые термины, а уникальный полигон во дворе главного корпуса вуза, на котором студенты МЭИ изучают возобновляемую энергетику, а вы сможете познакомиться с базовой информацией о «зеленой» энергетике в России.</p>
+</div>
+<button class="accordion">Лаборатория кафедры Светотехники</button>
+<div class="panel">
+  <p style='padding:25px;'>Вам, конечно же, ответят на вопрос «волна или частица?», а также расскажут о современном светотехническом оборудовании, о том, как «измерить» или «раскрасить» свет.</p>
+</div>
+
+<button class="accordion">Кафедра ИТНО (инновационных технологий наукоемких отраслей)</button>
+<div class="panel">
+  <p style='padding:25px;'>Четвертая промышленная революция – эра технологических лидеров. Инновационные технологии внедряются повсеместно от материального производства до сферы IT. 3D-моделирование, программирование, виртуальная и дополненная реальность, лазерные сканеры и 3D-принтеры, станки с ЧПУ – технологии и оборудование Индустрии 4.0, которые осваивают во время обучения студенты ИТНО. Погрузитесь в мир современной инженерии вместе с кафедрой ИТНО.</p>
+</div>
+
+<button class="accordion">Кафедра ИЭиОТ (инженерной экологии и охраны труда)</button>
+<div class="panel">
+    <p style='padding:25px;'>Представьте себе компанию энергетической отрасли, на которой нет специалиста по охране труда или экологической безопасности. Представили? Вот и мы не можем. В процессе экскурсии по кафедре вы узнаете об оказаниях первой помощи пострадавшим, очистке воды на предприятиях и проверите свои силы на уникальном VR-тренажере.</p>
+</div>
+<button class="accordion">Кафедра ЭКАОиЭТ (электротехнических комплексов автономных объектов и электрического транспорта)</button>
+<div class="panel">
+  <p style='padding:25px;'>Если вы хоть когда-нибудь добирались до дома на трамвае или электробусе, вы прекрасно понимаете, чем занимается эта кафедра НИУ «МЭИ». Помимо электрического транспорта вас ждет погружение в принципы работы летательных аппаратов – как в них распределяется энергия и как ими управлять.</p>
+</div>
+
+<button class="accordion">Кафедра ТЭС (тепловых электрических станций)</button>
+<div class="panel">
+  <p style='padding:25px;'>Вы когда-нибудь запускали газотурбинную установку (настоящую газовую турбину)? На данной кафедре вы можете попробовать себя в качестве самого настоящего инженера-теплоэнергетика, а также узнать, почему тепловые электрические станции — основа энергетики России.</p>
+</div>
+
+<button class="accordion">Высоковольтный зал кафедры ТЭВН</button>
+<div class="panel">
+    <p style='padding:25px;'>Молния, которая бьет в коттеджный поселок — это даже звучит страшно! Но в высоковольтном зале вы можете в непосредственной близости (но с безопасного расстояния) понаблюдать, как работают молниеотводы, как создаются искусственные грозовые облака и почему можно летать на самолете во время грозы. 
+p.s. А еще здесь снимали один из выпусков программы "Галилео" :)</p>
+</div> 
+</div>
+
+<div class='butt' style='padding:100px 45px;'>
+<div class='txt1' style="font-size:20px; width:55%; text-align: left;">
+    <p><div class="rightimg"><hr style="border-top: 3px solid #3e3e9e;">ВЫЕЗДЫ В ОБРАЗОВАТЕЛЬНЫЕ ОРГАНИЗАЦИИ</div><br>
+    Сотрудники Приемной комиссии МЭИ и студенты-амбассадоры различных направлений готовы приехать в школы Москвы и Московской области, чтобы рассказать учащимся о направлениях обучения в НИУ «МЭИ», поступлении в вуз, а также познакомят старшеклассников с профессией энергетика и перспективах развития молодого специалиста в отрасли. Студенты-амбассадоры поделятся своими впечатлениями от учебы и проведут интерактив с памятными брендированными призами.</div>
+</div>
+<div class="block1"></div>
+<div class='video'>
+    <div class='header-title' style="font-size: 36px; margin-top: 0;">
+        Первое знакомство с НИУ «МЭИ»
+    </div>
+    <div class='fr'>	<iframe src="https://rutube.ru/play/embed/82ccffd3fa99ba3b5158c75b049bc559" style='height: 110%; width: 53%;margin: 0 auto;' frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+	
+</div>
+    <div style="background: #0d0f25;">
+        <div class="block2"></div>    </div>
+<div class='gallery'>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <img src="img/img1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img3.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides fade">
+    <img src="img/img4.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img5.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img6.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides fade">
+    <img src="img/img7.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img8.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img9.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides fade">
+    <img src="img/img10.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img11.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="img/img12.jpg" style="width:100%">
+  </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  <!-- Next and previous buttons -->
+</div>
+<br>
+<br>
+<hr style="border-top: 0.5px solid white; width: 55%"><br>
+<p style='color:#888; font-size: 14px; font-family: "Montserrat", sans-serif; font-weight: 400; text-align: center;'>Фото: Илья Семёнов (УОС МЭИ), Евгения Андриевская</p>
+</div>
+    <div style="background: #c5203d;">
+<div class="block1" style=
+     "background: black;"></div>    
+    </div>
+    
+<div class="basement" id="item1">
+    <div class="basement-title"  style="text-align:center; color:white; font-weight: 600;font-size: 35px;">Контакты</div><br><br>
+    
+    <div class="basement-title"  style="text-align:center; color:white;font-size: 22px;  font-weight: 300;" >
+        Приёмная комиссия:<br>
+        +7 (495) 362-77-77;<br>
+        PK@mpei.ru<br><br>
+        Наш сайт:<br>
+        <a target='_blank' href='http://pk.mpei.ru/' style="text-decoration: none; color:#ff8562; font-weight: 500;">pk.mpei.ru</a></div>
+    
+    <br><br>
+    <div class="anchor" id="bottom-counters">
+        <a target="_blank" title="Мы во ВКонтакте" href="https://vk.com/pkmpeiofficial"><img border="0" alt=""  style="width: 44px; height: 44px;" src="img/vk.png" /></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" title="Наш Телеграм канал" href="https://web.telegram.org/k/#@mpeienergy"><img border="0" alt="" style="width: 44px; height: 44px;" src="img/t_logo.png" /></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" title="Наш YouTube канал" href="https://rutube.ru/channel/24149423/videos/"><img border="0" alt="" src="img/yt_icon_rgb.png" /></a>
+    </div>
+</div>
+<script>
+    
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
+
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+};
+    
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}  
+    
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script> 
+</body>
