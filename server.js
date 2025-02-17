@@ -27,8 +27,12 @@ app.get('/bookings', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+// Добавляем серверу возможность отдавать статичные файлы
+app.use(express.static('public'));
+
+// Если нужно обработать корневой путь:
 app.get('/', (req, res) => {
-    res.send('Сервер работает!');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
