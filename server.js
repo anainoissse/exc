@@ -7,8 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false } // Важно для Render!
+});
 
 pool.connect()
   .then(() => console.log("✅ Успешное подключение к базе данных"))
