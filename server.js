@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-    connectionString: "postgres://postgres:Choopachoops14@localhost:5432/ks",
+    connectionString: "postgresql://booking_user:50BzYaEds0xRvslLNXR84BWTVLBpG6Gm@dpg-cupn87pu0jms73bpohl0-a.oregon-postgres.render.com/ks_6m34",
     ssl: { rejectUnauthorized: false } // Важно для Render!
 });
 
