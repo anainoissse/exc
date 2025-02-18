@@ -9,6 +9,13 @@ app.use(express.json());
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
+
+pool.connect()
+  .then(() => console.log("✅ Успешное подключение к базе данных"))
+  .catch(err => console.error("❌ Ошибка подключения к базе:", err));
+
+
+
 app.post('/book', async (req, res) => {
     const { name, email, date } = req.body;
     try {

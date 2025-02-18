@@ -125,11 +125,14 @@ document.getElementById('bookingForm').addEventListener('submit', async (e) => {
         });
 
         const data = await res.json();
+        
         if (data.success) {
             alert('Запись успешна!');
             document.getElementById('bookingForm').reset(); // Очистка формы
         } else {
             alert('Ошибка: ' + data.error);
+            console.log("dfdfgzsdfdf");
+            console.log(data.error);
         }
     } catch (err) {
         alert('Ошибка сети: ' + err.message);
